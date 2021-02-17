@@ -8,6 +8,7 @@ jobs:
       - image: mcr.microsoft.com/playwright:bionic
         environment:
           NODE_ENV: development # Needed if playwright is in `devDependencies`
+    working_directory: ~/app
     steps:
       - checkout
       - restore_cache:
