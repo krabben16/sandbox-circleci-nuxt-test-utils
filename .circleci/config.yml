@@ -1,7 +1,25 @@
+# https://playwright.dev/docs/ci?_highlight=circle#circleci
+# https://dev.classmethod.jp/articles/circleci-getting-started-jest/
+
 version: 2.1
-orbs:
-  node: circleci/node@3.0.0
+jobs:
+  test:
+    docker:
+      - image: mcr.microsoft.com/playwright:bionic
+        environment:
+          NODE_ENV: development # Needed if playwright is in `devDependencies`
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "yarn.lock" }}
+      - run:
+          name: install dependencies
+          command: yarn install
+      - run:
+          name: e2e test
+          command: yarn test
 workflows:
-  node-tests:
+  version: 2
+  build_and_test:
     jobs:
-      - node/test
+      - test
