@@ -1,0 +1,13 @@
+# https://docs.docker.com/compose/gettingstarted/#step-3-define-services-in-a-compose-file
+version: "3.3"
+services:
+  playwright:
+    build:
+      dockerfile: ./infra/playwright/Dockerfile
+      context: ./
+    tty: true
+    volumes:
+      - .:/var/www/playwright
+      - node_modules:/var/www/playwright/node_modules
+volumes:
+  node_modules: {}
