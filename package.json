@@ -1,8 +1,8 @@
 {
-  "name": "sandbox-circleci-playwright",
+  "name": "sandbox-circleci-nuxt-test-utils",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:krabben16/sandbox-circleci-playwright.git",
+  "repository": "git@github.com:krabben16/sandbox_circleci_nuxt_test_utils.git",
   "author": "Hiroki Kawaguchi",
   "license": "MIT",
   "scripts": {
